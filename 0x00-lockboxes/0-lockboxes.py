@@ -25,6 +25,9 @@ def canUnlockAll(boxes):
     if type(boxes) is not list:
         return False
 
+    if len(boxes) == 1:
+        return True
+
     keyL = boxes[0]
     open = [0]
     try:
