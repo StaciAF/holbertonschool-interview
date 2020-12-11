@@ -6,7 +6,8 @@ each box may contain keys to itself or other boxes
 
 
 def canUnlockAll(boxes):
-    """ Moves through boxes to determine if given keys
+    """
+    Moves through boxes to determine if given keys
     can unlock all given boxes
 
     Parameters
@@ -26,14 +27,16 @@ def canUnlockAll(boxes):
 
     keyL = boxes[0]
     open = [0]
-
-    for key in keyL:
-        try:
-            if key not in open:
-                open.append(key)
-                keyL.extend(boxes[key])
-        except IndexError:
-            pass
+    try:
+        for key in keyL:
+            try:
+                if key not in open:
+                    open.append(key)
+                    keyL.extend(boxes[key])
+            except IndexError:
+                pass
+    except TypeError:
+        pass
 
     if len(boxes) == len(open):
         return True
