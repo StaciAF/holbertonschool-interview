@@ -24,6 +24,9 @@ def canUnlockAll(boxes):
     keyL = boxes[0]
     open = [0]
 
+    if type(boxes) is not list:
+        return False
+
     for key in keyL:
         if key not in open:
             open.append(key)
