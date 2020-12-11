@@ -21,6 +21,9 @@ def canUnlockAll(boxes):
         False if all boxes can not be unlocked
     """
 
+    if type(boxes) is not list:
+        return False
+
     keyL = boxes[0]
     open = [0]
 
