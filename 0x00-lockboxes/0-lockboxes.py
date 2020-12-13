@@ -27,16 +27,16 @@ def canUnlockAll(boxes):
 
     keyL = boxes[0]
     open = [0]
-    try:
-        for key in keyL:
-            try:
-                if key not in open:
+    for key in keyL:
+        try:
+            if key not in open:
+                try:
                     open.append(key)
                     keyL.extend(boxes[key])
-            except IndexError:
-                pass
-    except TypeError:
-        pass
+                except IndexError:
+                    pass
+        except IndexError:
+            pass
 
     if len(boxes) == len(open):
         return True
