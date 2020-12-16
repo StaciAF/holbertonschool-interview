@@ -63,7 +63,8 @@ size_t print_listint(const listint_t *h)
 
     return (n);
 }
-
+```
+```
 /**
  * add_nodeint_end - adds a new node at the end of a listint_t list
  * @head: pointer to pointer of first node of listint_t list
@@ -95,7 +96,8 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
     return (new);
 }
-
+```
+```
 /**
  * free_listint - frees a listint_t list
  * @head: pointer to list to be freed
@@ -149,7 +151,8 @@ int main(void)
 
     return (0);
 }
-
+```
+```
 carrie@ubuntu:0x01$ gcc -Wall -Werror -Wextra -pedantic 0-main.c linked_lists.c 0-insert_number.c -o insert
 carrie@ubuntu:0x01$ ./insert
 0
