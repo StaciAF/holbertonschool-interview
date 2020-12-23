@@ -9,13 +9,13 @@
 
 heap_t *heap_insert(heap_t **root, int value)
 {
-    heap_t *new = NULL;
-    new = malloc(sizeof(heap_t));
+        heap_t *new = NULL;
+        new = malloc(sizeof(heap_t));
     
-    if (new == NULL)
-        return(NULL);
-    if (root == NULL)
-        return(NULL);
-    new = binary_tree_node(*root, value);
-    return(new);
+        if (new == NULL)
+            return(NULL);
+        if (root == NULL)
+            return(NULL);
+        new = binary_tree_node(*root, value);
+        return(new);
 }
