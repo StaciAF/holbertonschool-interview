@@ -10,12 +10,24 @@
 heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new = NULL;
+/**	int temp;*/
 
-	new = malloc(sizeof(heap_t));
-	if (new == NULL)
-		return (NULL);
 	new = binary_tree_node(*root, value);
 	if (root == NULL)
 		return (NULL);
+	if (*root == NULL)
+	{
+		*root = new;
+		return (new);
+	}
 	return (new);
+/**
+ *	if (new->n > new->parent->n)
+ *	{
+ *		temp = new->parent->n;
+ *		parent->n = new->n;
+ *		new->n = temp;
+ *		return (new);
+ *	}
+*/
 }
