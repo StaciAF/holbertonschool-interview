@@ -14,8 +14,8 @@ heap_t *heap_insert(heap_t **root, int value)
 	new = malloc(sizeof(heap_t));
 	if (new == NULL)
 		return (NULL);
+	new = binary_tree_node(*root, value);
 	if (root == NULL)
 		return (NULL);
-	new = binary_tree_node(*root, value);
 	return (new);
 }
