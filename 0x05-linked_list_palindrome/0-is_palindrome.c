@@ -31,6 +31,10 @@ int is_palindrome(listint_t **head)
 	{
 		return (0);
 	}
+	if (list_size == 0)
+	{
+		return (1);
+	}
 	current = *head;
 	while (i < list_size)
 	{
