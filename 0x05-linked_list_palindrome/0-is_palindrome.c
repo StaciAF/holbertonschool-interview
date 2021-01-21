@@ -32,7 +32,7 @@ int is_palindrome(listint_t **head)
 	}
 	if (list_size < 2)
 	{
-		return (0);
+		return (1);
 	}
 	current = *head;
 	while (i < list_size)
