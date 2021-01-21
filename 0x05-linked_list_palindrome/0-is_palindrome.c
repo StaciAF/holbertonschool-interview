@@ -30,17 +30,13 @@ int is_palindrome(listint_t **head)
 		list_size++;
 		current = current->next;
 	}
-	if (list_size < 2)
-	{
-		return (1);
-	}
 	current = *head;
 	while (i < list_size)
 	{
-		if (compare_array[i] == current->n)
+		if (compare_array[i] == compare_array[list_size - 1])
 		{
 			i++;
-			current = current->next;
+			list_size--;
 		}
 		else
 		{
