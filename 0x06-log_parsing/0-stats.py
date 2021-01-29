@@ -40,7 +40,7 @@ try:
                     print(status + ": " + sum_list)
                 count = 0
                 stat_list.clear()
-except:
+except IndexError:
     pass
     # if count <= 10:
     #     file_list.append(file_size)
