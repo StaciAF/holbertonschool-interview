@@ -14,43 +14,34 @@ stat_list = []
 file_list = []
 cln_stat_list = []
 
-# for line in fileinput.input():
-#     count += 1
-#     print(line)
-#     tup_fileSize = re.findall(file_regex, line)
-#     file_size = ''.join(tup_fileSize)
-#     file_size = file_size.strip()
-#     file_size = int(file_size)
-#     while count <= 10:
-#         file_list.append(file_size)
-#     total_file = sum(file_list)
-#     print(total_file)
-#     count = 0
-for i in range(0, 11):
-    for line in fileinput.input():
-        count += 1
-        # print(line)
-        tup_status = re.findall(status_regex, line)
-        status_code = ''.join(tup_status)
-        status_code = status_code.strip()
-        stat_list.append(status_code)
-        # stat_list = set(stat_list)
-        stat_list = list(stat_list)
-        stat_list.sort()
-        # print(str(stat_list) + ":STATS")
-        tup_fileSize = re.findall(file_regex, line)
-        file_size = ''.join(tup_fileSize)
-        file_size = file_size.strip()
-        file_size = int(file_size)
-        file_list.append(file_size)
-        total_file = sum(file_list)
-        if count == 10:
-            print("File size: " + str(total_file))
-            for status in stat_list:
-                sum_list = str(stat_list.count(status))
-                print(status + ": " + sum_list)
-            count = 0
-            stat_list.clear()
+try:
+    for i in range(0, 11):
+        for line in fileinput.input():
+            count += 1
+            # print(line)
+            tup_status = re.findall(status_regex, line)
+            status_code = ''.join(tup_status)
+            status_code = status_code.strip()
+            stat_list.append(status_code)
+            # stat_list = set(stat_list)
+            stat_list = list(stat_list)
+            stat_list.sort()
+            # print(str(stat_list) + ":STATS")
+            tup_fileSize = re.findall(file_regex, line)
+            file_size = ''.join(tup_fileSize)
+            file_size = file_size.strip()
+            file_size = int(file_size)
+            file_list.append(file_size)
+            total_file = sum(file_list)
+            if count == 10:
+                print("File size: " + str(total_file))
+                for status in stat_list:
+                    sum_list = str(stat_list.count(status))
+                    print(status + ": " + sum_list)
+                count = 0
+                stat_list.clear()
+except:
+    pass
     # if count <= 10:
     #     file_list.append(file_size)
     #     total_file = sum(file_list)
