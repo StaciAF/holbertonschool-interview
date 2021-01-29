@@ -12,6 +12,7 @@ file_regex = '\s+\d+\s+(.*)'
 count = 0
 stat_list = []
 file_list = []
+cln_stat_list = []
 
 # for line in fileinput.input():
 #     count += 1
@@ -25,7 +26,7 @@ file_list = []
 #     total_file = sum(file_list)
 #     print(total_file)
 #     count = 0
-for i in range(0, 10):
+for i in range(0, 11):
     for line in fileinput.input():
         count += 1
         # print(line)
@@ -47,8 +48,6 @@ for i in range(0, 10):
             print("File size: " + str(total_file))
             for status in stat_list:
                 sum_list = str(stat_list.count(status))
-                # sum_list = set(sum_list)
-                # sum_list = list(sum_list)
                 print(status + ": " + sum_list)
             count = 0
             stat_list.clear()
