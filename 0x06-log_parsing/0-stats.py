@@ -4,7 +4,7 @@ this module includes a script that reads stdin
 line by line and computes requested metrics
 """
 
-import fileinput
+import sys
 import re
 
 status_regex = '\s+\d+\s+'
@@ -16,7 +16,7 @@ file_list = []
 stat_dict = {}
 
 try:
-    for line in fileinput.input():
+    for line in sys.stdin:
         if line == '\n':
             continue
         count += 1
