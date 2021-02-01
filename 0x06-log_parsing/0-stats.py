@@ -45,10 +45,6 @@ if __name__ == "__main__":
             print(str(k) + ": " + str(v))
     except KeyboardInterrupt as error:
         print("File size: {}".format(total_file))
-        for status in stat_list:
-            if status not in stat_dict:
-                stat_dict[status] = 1
-            else:
-                stat_dict[status] += 1
         for k, v in sorted(stat_dict.items()):
             print(str(k) + ": " + str(v))
+        raise
