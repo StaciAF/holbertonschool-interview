@@ -31,26 +31,26 @@ if __name__ == "__main__":
             file_size = int(file_size)
             file_list.append(file_size)
             total_file = sum(file_list)
-            print("File size:{}".format(total_file))
+            print("File size: {}".format(total_file))
             if status_code in stat_dict:
                 stat_dict[status_code] += 1
             else:
                 stat_dict[status_code] = 1
             for k, v in sorted(stat_dict.items()):
-                print(str(k) + ":" + str(v))
+                print(str(k) + ": " + str(v))
             if count % 10 == 0:
                 count = 0
                 print("File size:{}".format(total_file))
                 for k, v in sorted(stat_dict.items()):
-                    print(str(k) + ":" + str(v))
+                    print(str(k) + ": " + str(v))
                 # count = 0
                 # stat_list.clear()
     except KeyboardInterrupt as error:
-        print("File size:{}".format(total_file))
+        print("File size: {}".format(total_file))
         for status in stat_list:
             if status not in stat_dict:
                 stat_dict[status] = 1
             else:
                 stat_dict[status] += 1
         for k, v in sorted(stat_dict.items()):
-            print(str(k) + ":" + str(v))
+            print(str(k) + ": " + str(v))
