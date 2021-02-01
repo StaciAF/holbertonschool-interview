@@ -15,6 +15,7 @@ if __name__ == "__main__":
     stat_list = []
     file_list = []
     stat_dict = {}
+    total_file = 0
     try:
         for line in sys.stdin:
             if line == '':
