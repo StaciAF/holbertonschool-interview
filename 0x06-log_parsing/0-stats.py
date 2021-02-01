@@ -43,8 +43,6 @@ if __name__ == "__main__":
         print("File size: {}".format(total_file))
         for k, v in sorted(stat_dict.items()):
             print(str(k) + ": " + str(v))
-                # count = 0
-                # stat_list.clear()
     except KeyboardInterrupt as error:
         print("File size: {}".format(total_file))
         for status in stat_list:
