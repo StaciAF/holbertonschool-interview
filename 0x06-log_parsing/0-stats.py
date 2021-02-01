@@ -12,7 +12,6 @@ if __name__ == "__main__":
     status_regex = '\s+\d+\s+'
     file_regex = '\s+\d+\s+(.*)'
     count = 0
-    i = 0
     stat_list = []
     file_list = []
     stat_dict = {}
@@ -32,28 +31,21 @@ if __name__ == "__main__":
             file_size = int(file_size)
             file_list.append(file_size)
             total_file = sum(file_list)
-            if count == 10:
+        # for status in stat_list:
+            print("File size: " + str(total_file))
+            if status_code in stat_dict:
+                stat_dict[status_code] += 1
+            else:
+                stat_dict[status_code] = 1
+            for k, v in sorted(stat_dict.items()):
+                print(str(k) + ": " + str(v))
+            if count % 10 == 0:
+                count = 0
                 print("File size: " + str(total_file))
-                for status in stat_list:
-                    if status not in stat_dict:
-                        stat_dict[status] = 1
-                    else:
-                        stat_dict[status] += 1
-                    # sum_list = str(stat_list.count(status))
-                    # stat_dict = {status: sum_list}
-                    # stat_dict.update({status: sum_list})
-                    # print("STAT:" + status + "SUM:" + sum_list)
-                # print(stat_dict)
-                # print(stat_dict)
-                # if stat_dict[st] in unique_codes:
-                #     print(stat_dict)
                 for k, v in sorted(stat_dict.items()):
                     print(str(k) + ": " + str(v))
-                #     # for code_val in stat_dict['code']:
-                    #     for count_val in stat_dict['count']:
-                    #         print(code_val + ": " + count_val)
-                count = 0
-                stat_list.clear()
+                # count = 0
+                # stat_list.clear()
     except KeyboardInterrupt as error:
         print("File size: " + str(total_file))
         for status in stat_list:
