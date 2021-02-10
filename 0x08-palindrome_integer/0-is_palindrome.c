@@ -26,15 +26,11 @@ int is_palindrome(unsigned long n)
 	{
 		first_digit = n / first_divisor;
 		last_digit = n % last_divisor;
-		if (first_divisor < last_divisor)
-		{
-			printf("Is palindrome\n");
-			return (1);
-		}
 		n -= first_divisor * first_digit;
 		n /= 10;
 		first_divisor /= 100;
+		if (first_divisor < last_divisor)
+			return (1);
 	}
-	printf("Is not palindrome\n");
 	return (0);
 }
