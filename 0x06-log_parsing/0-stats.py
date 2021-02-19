@@ -18,7 +18,7 @@ if __name__ == "__main__":
     total_file = 0
     try:
         for line in sys.stdin:
-            if line == '':
+            if line == "":
                 continue
             count += 1
             tup_status = re.findall(status_regex, line)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
             tup_fileSize = re.findall(file_regex, line)
             file_size = ''.join(tup_fileSize)
             file_size = file_size.strip()
-            file_size = int(file_size)
+            # file_size = int(file_size)
             file_list.append(file_size)
             total_file = sum(file_list)
             if status_code in stat_dict:
