@@ -3,6 +3,7 @@
 checking for UTF-8 encoding, validator
 """
 
+
 def validUTF8(data):
     numBytes = 0
     # iterate over each integer in list
