@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+checking for UTF-8 encoding, validator
+"""
 
 def validUTF8(data):
     numBytes = 0
