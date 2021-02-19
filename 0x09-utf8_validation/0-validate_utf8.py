@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 def validUTF8(data):
     # iterate over each integer in list
