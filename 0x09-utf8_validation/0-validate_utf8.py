@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 def validUTF8(data):
-    # iterate over each integer in list
     numBytes = 0
-
+    # iterate over each integer in list
     for each in data:
         # get least 8 bits
         binaryForm = format(each, '#010b')[-8:]
