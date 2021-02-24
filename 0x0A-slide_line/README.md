@@ -14,3 +14,35 @@
 * Both macros ``SLIDE_LEFT`` and ``SLIDE_RIGHT`` must be defined in slide_line.h
 * Your function must return 1 upon success, or 0 upon failure
 * You are not allowed to allocate memory dynamically (``malloc``, ``calloc``, …)
+
+```
+alex@~/0x0A-slide_line$ gcc -Wall -Wextra -Werror -pedantic -o 0-slide_line 0-main.c 0-slide_line.c
+alex@~/0x0A-slide_line$ ./0-slide_line L 2 2 0 0
+Line: 2, 2, 0, 0
+Slide to the left
+Line: 4, 0, 0, 0
+alex@~/0x0A-slide_line$ ./0-slide_line L 2 2 0 0 0 0 0 2 0 0 0 2 0 4
+Line: 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4
+Slide to the left
+Line: 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+alex@~/0x0A-slide_line$ ./0-slide_line R 2 2 2 2
+Line: 2, 2, 2, 2
+Slide to the right
+Line: 0, 0, 4, 4
+alex@~/0x0A-slide_line$ ./0-slide_line R 2 2 2 2 2
+Line: 2, 2, 2, 2, 2
+Slide to the right
+Line: 0, 0, 2, 4, 4
+alex@~/0x0A-slide_line$ ./0-slide_line L 2 4 8 16
+Line: 2, 4, 8, 16
+Slide to the left
+Line: 2, 4, 8, 16
+alex@~/0x0A-slide_line$ ./0-slide_line R 2 4 8 16
+Line: 2, 4, 8, 16
+Slide to the right
+Line: 2, 4, 8, 16
+alex@~/0x0A-slide_line$ ./0-slide_line R 4 4 8 16
+Line: 4, 4, 8, 16
+Slide to the right
+Line: 0, 8, 8, 16
+```
