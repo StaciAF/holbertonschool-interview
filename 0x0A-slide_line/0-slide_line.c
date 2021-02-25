@@ -15,11 +15,7 @@ int slide_line(int *line, size_t size, int direction)
 {
 	int i, j, flag = 0;
 
-	if (size < 1)
-	{
-		return (flag);
-	}
-	if (direction != SLIDE_LEFT && direction != SLIDE_RIGHT)
+	if (size < 1 || (direction != SLIDE_LEFT && direction != SLIDE_RIGHT))
 	{
 		return (flag);
 	}
