@@ -24,6 +24,11 @@ int slide_line(int *line, size_t size, int direction)
 		i = 0;
 		for (j = 1; j < (int)size;)
 		{
+			if (line[j] == 0)
+			{
+				j++;
+				continue;
+			}
 			if (line[i] == line[j])
 			{
 				line[i] += line[j];
