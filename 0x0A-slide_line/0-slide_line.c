@@ -13,21 +13,19 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	int flag = 0;
-
 	if (size < 1 || (direction != SLIDE_LEFT && direction != SLIDE_RIGHT))
 	{
-		return (flag);
+		return (0);
 	}
 	if (direction == SLIDE_LEFT)
 	{
-		flag = func_slide_left(line, size);
+		func_slide_left(line, size);
 	}
 	if (direction == SLIDE_RIGHT)
 	{
-		flag = func_slide_right(line, size);
+		func_slide_right(line, size);
 	}
-	return (flag);
+	return (1);
 }
 /**
  * func_slide_left - when direction is left, slides and merges
@@ -35,8 +33,9 @@ int slide_line(int *line, size_t size, int direction)
  * @size: number of elements in array
  * Return: 1 for success, 0 for failure
  */
-int func_slide_left(int *line, size_t size)
-{	int i, j, flag = 0;
+void func_slide_left(int *line, size_t size)
+{
+	int i, j;
 
 	i = 0;
 	for (j = 1; j < (int)size;)
@@ -50,7 +49,6 @@ int func_slide_left(int *line, size_t size)
 		{
 			line[i] += line[j];
 			line[j] = 0;
-			flag = 1;
 			i++;
 			j++;
 		}
@@ -60,7 +58,6 @@ int func_slide_left(int *line, size_t size)
 			{
 				line[i] += line[j];
 				line[j] = 0;
-				flag = 1;
 				j++;
 			}
 			else
@@ -70,13 +67,11 @@ int func_slide_left(int *line, size_t size)
 				{
 					line[i] += line[j];
 					line[j] = 0;
-					flag = 1;
 				}
 				j++;
 			}
 		}
 	}
-	return (flag);
 }
 
 /**
@@ -85,8 +80,9 @@ int func_slide_left(int *line, size_t size)
  * @size: number of elements in array
  * Return: 1 for success, 0 for failure
  */
-int func_slide_right(int *line, size_t size)
-{	int i, j, flag = 0;
+void func_slide_right(int *line, size_t size)
+{
+	int i, j;
 
 	i = ((int)size - 1);
 	for (j = ((int)size - 2); j >= 0;)
@@ -100,7 +96,6 @@ int func_slide_right(int *line, size_t size)
 		{
 			line[i] += line[j];
 			line[j] = 0;
-			flag = 1;
 			i--;
 			j--;
 		}
@@ -110,7 +105,6 @@ int func_slide_right(int *line, size_t size)
 			{
 				line[i] += line[j];
 				line[j] = 0;
-				flag = 1;
 				j--;
 			}
 			else
@@ -120,11 +114,9 @@ int func_slide_right(int *line, size_t size)
 				{
 					line[i] += line[j];
 					line[j] = 0;
-					flag = 1;
 				}
 				j--;
 			}
 		}
 	}
-	return (flag);
 }
