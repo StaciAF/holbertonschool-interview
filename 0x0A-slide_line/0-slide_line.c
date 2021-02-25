@@ -13,7 +13,7 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	int i, j, flag = 0;
+	int flag = 0;
 
 	if (size < 1 || (direction != SLIDE_LEFT && direction != SLIDE_RIGHT))
 	{
@@ -21,83 +21,108 @@ int slide_line(int *line, size_t size, int direction)
 	}
 	if (direction == SLIDE_LEFT)
 	{
-		i = 0;
-		for (j = 1; j < (int)size;)
-		{
-			if (line[j] == 0)
-			{
-				j++;
-				continue;
-			}
-			if (line[i] == line[j])
-			{
-				line[i] += line[j];
-				line[j] = 0;
-				flag = 1;
-				i++;
-				j++;
-			}
-			else if (line[i] != line[j])
-			{
-				if (line[i] == 0)
-				{
-					line[i] += line[j];
-					line[j] = 0;
-					flag = 1;
-					j++;
-				}
-				else
-				{
-					i++;
-					if (i != j)
-					{
-						line[i] += line[j];
-						line[j] = 0;
-						flag = 1;
-					}
-					j++;
-				}
-			}
-		}
+		flag = func_slide_left(line, size);
 	}
 	if (direction == SLIDE_RIGHT)
 	{
-		i = ((int)size - 1);
-		for (j = ((int)size - 2); j >= 0;)
+		flag = func_slide_right(line, size);
+	}
+	return (flag);
+}
+/**
+ * func_slide_left - when direction is left, slides and merges
+ * @line: array of ints given to read as a line
+ * @size: number of elements in array
+ * Return: 1 for success, 0 for failure
+ */
+int func_slide_left(int *line, size_t size)
+{	int i, j, flag = 0;
+
+	i = 0;
+	for (j = 1; j < (int)size;)
+	{
+		if (line[j] == 0)
 		{
-			if (line[j] == 0)
-			{
-				j--;
-				continue;
-			}
-			if (line[i] == line[j])
+			j++;
+			continue;
+		}
+		if (line[i] == line[j])
+		{
+			line[i] += line[j];
+			line[j] = 0;
+			flag = 1;
+			i++;
+			j++;
+		}
+		else if (line[i] != line[j])
+		{
+			if (line[i] == 0)
 			{
 				line[i] += line[j];
 				line[j] = 0;
 				flag = 1;
-				i--;
-				j--;
+				j++;
 			}
-			else if (line[i] != line[j])
+			else
 			{
-				if (line[i] == 0)
+				i++;
+				if (i != j)
 				{
 					line[i] += line[j];
 					line[j] = 0;
 					flag = 1;
-					j--;
 				}
-				else
+				j++;
+			}
+		}
+	}
+	return (flag);
+}
+
+/**
+ * func_slide_right - given direction, slides and merges ints in array
+ * @line: array of ints given in a line
+ * @size: number of elements in array
+ * Return: 1 for success, 0 for failure
+ */
+int func_slide_right(int *line, size_t size)
+{	int i, j, flag = 0;
+
+	i = ((int)size - 1);
+	for (j = ((int)size - 2); j >= 0;)
+	{
+		if (line[j] == 0)
+		{
+			j--;
+			continue;
+		}
+		if (line[i] == line[j])
+		{
+			line[i] += line[j];
+			line[j] = 0;
+			flag = 1;
+			i--;
+			j--;
+		}
+		else if (line[i] != line[j])
+		{
+			if (line[i] == 0)
+			{
+				line[i] += line[j];
+				line[j] = 0;
+				flag = 1;
+				j--;
+			}
+			else
+			{
+				i--;
+				if (i != j)
 				{
-					i--;
-					if (i != j)
-					{
-						line[i] += line[j];
-						line[j] = 0;
-						flag = 1;
-					}
-					j--;
+					line[i] += line[j];
+					line[j] = 0;
+					flag = 1;
 				}
+				j--;
 			}
 		}
 	}
