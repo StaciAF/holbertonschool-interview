@@ -1,10 +1,12 @@
 #include "slide_line.h"
 
 /**
- * slide_line - slide and merge integers in given array if they are identical numbers and are either contiguous or separated by zeroes
+ * slide_line - slide and merge integers in given array if they are identical
+ * numbers and are either contiguous or separated by zeroes
  * @line: integer array given
  * @size: number of elements in array
- * @direction: direction, defined by SLIDE_LEFT or SLIDE_RIGHT macro passed for necessary sliding
+ * @direction: direction, defined by SLIDE_LEFT or SLIDE_RIGHT macro passed for
+ * necessary sliding
  *
  * Return: 1 for success or 0 for failure
  */
@@ -26,10 +28,6 @@ int slide_line(int *line, size_t size, int direction)
 		i = 0;
 		for (j = 1; j < (int)size;)
 		{
-			if (line[j] == 0)
-			{
-				j++;
-			}
 			if (line[i] == line[j])
 			{
 				line[i] += line[j];
@@ -69,6 +67,7 @@ int slide_line(int *line, size_t size, int direction)
 			if (line[j] == 0)
 			{
 				j--;
+				continue;
 			}
 			if (line[i] == line[j])
 			{
