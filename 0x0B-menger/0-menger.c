@@ -18,4 +18,16 @@ void menger(int level)
 		printf("# #\n");
 		printf("###\n");
 	}
+	if (level == 2)
+	{
+		printf("#########\n");
+		printf("# ## ## #\n");
+		printf("#########\n");
+		printf("###   ###\n");
+		printf("# #   # #\n");
+		printf("###   ###\n");
+		printf("#########\n");
+		printf("# ## ## #\n");
+		printf("#########\n");
+	}
 }
