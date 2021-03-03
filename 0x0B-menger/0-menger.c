@@ -6,17 +6,16 @@
  * Return - void function, return nothing
  */
 
-void menger(int level) 
+void menger(int level)
 {
-    if (level < 0)
-        return;
-    if (level == 0)
-        printf("#\n");
-    if (level == 1)
-    {
-        printf("###\n");
-        printf("# #\n");
-        printf("###\n");
-    }
-    return;
+	if (level < 0)
+		return;
+	if (level == 0)
+		printf("#\n");
+	if (level == 1)
+	{
+		printf("###\n");
+		printf("# #\n");
+		printf("###\n");
+	}
 }
