@@ -6,5 +6,6 @@
 #include <stdlib.h>
 
 void menger(int level);
+void print_menger3(void);
 
 #endif
