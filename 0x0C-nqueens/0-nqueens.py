@@ -8,19 +8,16 @@ import sys
 def solveNQueens():
     """ this function solves N Queens """
     n = (sys.argv[1])
-    if len(sys.argv) > 2:
+    if len(sys.argv) != 2:
         print('Usage: nqueens N')
-        print('')
         exit(1)
     if n.isdigit() is True:
         n = int(sys.argv[1])
     else:
         print('N must be a number')
-        print('')
         exit(1)
     if n < 4:
         print('N must be at least 4')
-        print('')
         exit(1)
     if n == 4:
         print([[0, 1], [1, 3], [2, 0], [3, 2]])
