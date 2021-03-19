@@ -27,9 +27,9 @@ int main(void)
     print_listint(head);
 
     if (check_cycle(head) == 0)
-        printf("Linked list has no cycle\n");
+        printf("Cycle FREE suckah\n");
     else if (check_cycle(head) == 1)
-        printf("Linked list has a cycle\n");
+        printf("CYCLE CITY, BAY BEE\n");
 
     current = head;
     for (i = 0; i < 4; i++)
@@ -38,9 +38,9 @@ int main(void)
     current->next = head;
 
     if (check_cycle(head) == 0)
-        printf("Linked list has no cycle\n");
+        printf("Cycle FREE suckah\n");
     else if (check_cycle(head) == 1)
-        printf("Linked list has a cycle\n");
+        printf("CYCLE CITY, BAY BEE\n");
 
     current = head;
     for (i = 0; i < 4; i++)
