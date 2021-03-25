@@ -26,6 +26,11 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	return (newTree);
 }
 
+/**
+ * create_node - creates a new binary tree node
+ * @midpoint: int, middle index of array
+ * Return: binary tree with created node
+ */
 avl_t *create_node(int midpoint)
 {
 	avl_t *newTree = NULL;
