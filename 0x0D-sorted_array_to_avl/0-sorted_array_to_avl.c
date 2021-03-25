@@ -9,21 +9,30 @@
 
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	avl_t *newTree = NULL;
-	size_t midpoint = (size - 1) / 2;
+	return (make_tree(array, 0, size - 1, NULL));
+}
 
-	newTree = create_node(array[midpoint]); /** #047 */
-	midpoint /= 2;
-	newTree->left = create_node(array[midpoint]); /** #021 */
-	newTree->left->parent = newTree;
-	midpoint /= 2;
-	newTree->left->left = create_node(array[midpoint]); /** #002 */
-	newTree->left->left->parent = newTree->left;
-	midpoint /= 2;
-	newTree->left->left->left = create_node(array[midpoint]); /** #001 */
-	newTree->left->left->left->parent = newTree->left->left;
-	midpoint /= 2;
-	return (newTree);
+/**
+ * make_tree - recursively builds AVL tree from array
+ * @arr: pointer to start of array
+ * @start: beginning of array index
+ * @end: end of array index
+ * @recent: parent to current
+ * Return: pointer to root of built AVL tree
+ */
+avl_t *make_tree(int *arr, int start, int end, avl_t *recent)
+{
+	int mid;
+	avl_t *root = NULL;
+
+	if (start > end)
+		return (NULL);
+	mid = (start + end) / 2;
+	root = create_node(arr[mid]);
+	root->parent = recent;
+	root->left = make_tree(arr, start, mid - 1, root);
+	root->right = make_tree(arr, mid + 1, end, root);
+	return (root);
 }
 
 /**
