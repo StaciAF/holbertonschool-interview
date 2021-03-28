@@ -29,9 +29,12 @@ avl_t *make_tree(int *arr, int start, int end, avl_t *recent)
 		return (NULL);
 	mid = (start + end) / 2;
 	root = create_node(arr[mid]);
-	root->parent = recent;
-	root->left = make_tree(arr, start, mid - 1, root);
-	root->right = make_tree(arr, mid + 1, end, root);
+	if (root != NULL)
+	{
+		root->parent = recent;
+		root->left = make_tree(arr, start, mid - 1, root);
+		root->right = make_tree(arr, mid + 1, end, root);
+	}
 	return (root);
 }
 
