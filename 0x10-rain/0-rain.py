@@ -11,11 +11,9 @@ def rain(walls):
     if not walls:
         return 0
     length = (len(walls) - 2)
-    i = 0
+    i = 1
     while i < (length):
         each = walls[i]
-        print("Added {}".format(each))
         each += each
-        print("Equals {}".format(each))
         i += 1
     return each
