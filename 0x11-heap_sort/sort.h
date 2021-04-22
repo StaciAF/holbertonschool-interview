@@ -1,9 +1,11 @@
 #ifndef SORT_H
 #define SORT_H
 
+/* LIBRARIES */
 #include <stdlib.h>
 #include <stdio.h>
 
+/* HELPER FUNCTIONS */
 /**
  * print_array - Prints an array of integers
  *
@@ -12,19 +14,21 @@
  */
 void print_array(const int *array, size_t size)
 {
-    size_t i;
+	size_t i;
 
-    i = 0;
-    while (array && i < size)
-    {
-        if (i > 0)
-            printf(", ");
-        printf("%d", array[i]);
-        ++i;
-    }
-    printf("\n");
+	i = 0;
+	while (array && i < size)
+	{
+	if (i > 0)
+	printf(", ");
+	printf("%d", array[i]);
+	++i;
+	}
+	printf("\n");
 }
 
+/* PROTOTYPES */
+void print_array(const int *array, size_t size);
 void heap_sort(int *array, size_t size);
 
 #endif /* SORT_H */
