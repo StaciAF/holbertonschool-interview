@@ -10,38 +10,45 @@
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t start = 0;
-	size_t end, mid, count = 0;
+	size_t small = 0;
+	size_t large = size - 1;
 
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
-	end = size - 1;
-	while (start <= end)
-	{
-		mid = ((start + end) / 2);
-		printf("Searching in array: ");
-		for (count = start; count < end; count++)
-			printf("%d, ", array[count]);
-		printf("%d\n", array[count]);
+	return (rec_advanced_bin(array, small, large, value));
+}
 
-		if (array[mid] < value)
-		{
-			start = (mid + 1);
-			if (start > end)
-			{
-				return (-1);
-			}
-		}
-		else if (array[mid] > value)
-		{
-			end = (mid - 1);
-			if (start > end)
-			{
-				return (-1);
-			}
-		}
+/**
+ * rec_advanced_bin - recursively searches for value
+ * @array: pointer to first element
+ * @small: beginning of array
+ * @large: end of array
+ * @value: searching for
+ * Return: FIRST index for value or -1
+ */
+
+int rec_advanced_bin(int *array, size_t small, size_t large, int value)
+{
+	size_t count = small;
+	int mid = (small + large) / 2;
+
+	if (small > large)
+		return (-1);
+	printf("Searching in array: ");
+	while (count <= large)
+	{
+		printf("%d", array[count]);
+		if (count != large)
+			printf(", ");
 		else
-			return (mid);
+			printf("\n");
+		count++;
 	}
+	if (array[mid] == value && array[mid - 1] != value)
+		return (mid);
+	else if (array[mid] >= value)
+		return (rec_advanced_bin(array, small, mid, value));
+	else if (array[mid] < value)
+		return (rec_advanced_bin(array, mid + 1, large, value));
 	return (-1);
 }
