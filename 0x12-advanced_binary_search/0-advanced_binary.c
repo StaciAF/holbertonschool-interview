@@ -11,7 +11,7 @@
 int advanced_binary(int *array, size_t size, int value)
 {
 	size_t start = 0;
-	size_t end, mid, count;
+	size_t end, mid, count = 0;
 
 	if (array == NULL)
 		return (-1);
