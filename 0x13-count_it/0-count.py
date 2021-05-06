@@ -8,8 +8,6 @@ import requests
 
 def count_words(subreddit, word_list, after=""):
     """ this is my doc string, lookee """
-    if word_list = []:
-        return None
     reddit = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit)
     red_json = red_req.json()
     key = 'data'
