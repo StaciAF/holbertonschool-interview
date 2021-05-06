@@ -22,6 +22,6 @@ def count_words(subreddit, word_list, after=""):
                     count += 1
                     word_dict[word] = count
                     print("{}: {}".format(word, count))
-                    pagination = red_json.get('data').get('after')
-                    if pagination:
-                        count_words(subreddit, word_list, pagination)
+                pagination = red_json.get('data').get('after')
+                if pagination:
+                    count_words(subreddit, word_list, pagination)
