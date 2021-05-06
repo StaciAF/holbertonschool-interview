@@ -6,10 +6,11 @@ import json
 import requests
 
 
-def count_words(subreddit, word_list):
+def count_words(subreddit, word_list, after=""):
     """ this is my doc string, lookee """
-    reddit = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
-    red_req = requests.get(reddit, headers=u_head, allow_redirects=False)
+    if word_list = []:
+        return None
+    reddit = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit)
     red_json = red_req.json()
     key = 'data'
     if key in red_json:
@@ -23,3 +24,6 @@ def count_words(subreddit, word_list):
                     count += 1
                     word_dict[word] = count
                     print("{}: {}".format(word, count))
+                    pagination = red_json.get('data').get('after')
+                    if pagination:
+                        count_words(subreddit, word_list, pagination)
