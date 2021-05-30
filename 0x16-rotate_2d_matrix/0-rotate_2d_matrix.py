@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+""" this module writes a function to rotate matrix"""
+
 
 def rotate_2d_matrix(matrix):
+    """ this method rotates a 2x2 matrix by 90 degrees"""
     N = len(matrix[0])
     for i in range(N // 2):
         for j in range(i, N - i - 1):
